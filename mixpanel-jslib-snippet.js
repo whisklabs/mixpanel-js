@@ -4,7 +4,7 @@
 // ==/ClosureCompiler==
 
 /** @define {string} */
-var LIB_URL = '../mixpanel.js';
+var MIXPANEL_DEFAULT_LIB_URL = '//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js';
 
 (function(document, mixpanel){
     // Only stub out if this is the first time running the snippet.
@@ -70,7 +70,8 @@ var LIB_URL = '../mixpanel.js';
         script.async = true;
 
         // The default url is intended to be relative to the tests/tests.html file
-        script.src = LIB_URL;
+        var mp_lib_url = typeof MIXPANEL_LIB_URL !== 'undefined' ? MIXPANEL_LIB_URL : MIXPANEL_DEFAULT_LIB_URL;
+        script.src = mp_lib_url;
 
         first_script = document.getElementsByTagName("script")[0];
         first_script.parentNode.insertBefore(script, first_script);
