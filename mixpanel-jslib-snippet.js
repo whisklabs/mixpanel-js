@@ -3,14 +3,11 @@
 // @output_file_name mixpanel-jslib-2.2-snippet.min.js
 // ==/ClosureCompiler==
 
-/** @define {string} */
-var LIB_URL = '../mixpanel.js';
-
-(function(document, mixpanel){
+(function(mixpanel, namespace){
     // Only stub out if this is the first time running the snippet.
     if (!mixpanel['__SV']) {
-        var script, first_script, gen_fn, functions, i, lib_name = "mixpanel";
-        window[lib_name] = mixpanel;
+        var gen_fn, functions, i, lib_name = "mixpanel";
+        namespace[lib_name] = mixpanel;
 
         mixpanel['_i'] = [];
 
@@ -64,16 +61,6 @@ var LIB_URL = '../mixpanel.js';
 
         // Snippet version, used to fail on new features w/ old snippet
         mixpanel['__SV'] = 1.2;
-
-        script = document.createElement("script");
-        script.type = "text/javascript";
-        script.async = true;
-
-        // The default url is intended to be relative to the tests/tests.html file
-        script.src = LIB_URL;
-
-        first_script = document.getElementsByTagName("script")[0];
-        first_script.parentNode.insertBefore(script, first_script);
     }
 // Pass in current Mixpanel object if it exists (for ppl like Optimizely)
-})(document, window['mixpanel'] || []);
+})(namespace['mixpanel'] || [], namespace);

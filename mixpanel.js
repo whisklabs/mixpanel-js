@@ -16,7 +16,7 @@
 // ==/ClosureCompiler==
 
 /*
-Will export window.mixpanel
+Will export namespace.mixpanel
 */
 
 /*
@@ -4351,7 +4351,7 @@ Globals should be all caps
                 instance._loaded();
             }
 
-            window[PRIMARY_INSTANCE_NAME] = mixpanel = instance;
+            namespace[PRIMARY_INSTANCE_NAME] = mixpanel = instance;
             extend_mp();
         }
     };
@@ -4417,4 +4417,4 @@ Globals should be all caps
     // fallback handler, always will work
     _.register_event(window, 'load', dom_loaded_handler, true);
 
-})(window['mixpanel']);
+})(namespace['mixpanel'], namespace);
